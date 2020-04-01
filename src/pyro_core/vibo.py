@@ -32,18 +32,12 @@ if __name__ == "__main__":
                         help='1pl|2pl|3pl (default: 1pl)')
     parser.add_argument('--dataset', type=str, default='1pl_simulation',
                         choices=[
-                            'powergrading', 
-                            'gradescope', 
-                            'nwea',
-                            'children_language', 
-                            'duolingo_language', 
-                            'wordbank_language',
+                            'critlangacq',
+                            'duolingo',
+                            'wordbank',
                             '1pl_simulation', 
                             '2pl_simulation', 
                             '3pl_simulation',
-                            '1pl_nonlinear', 
-                            '2pl_nonlinear', 
-                            '3pl_nonlinear',
                         ],
                         help='which dataset to run on (default: 1pl_simulation)')
     parser.add_argument('--ability-dim', type=int, default=1,
