@@ -23,6 +23,10 @@ pip install tqdm nltk dotmap sklearn
 
 The `config.py` file contains several useful global variables. Please change the paths there to be suitable to your own use cases.
 
+## Downloading Data
+
+I have included the real world data (with exception of Gradescope) in the public Google drive folder: https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc?usp=sharing. Please unzip the folders in the `DATA_DIR` as specified by the config.
+
 ## How to Use
 
 We will walk through a few commands for data processing and training models.
@@ -78,6 +82,3 @@ Deep IRT is not a true inference model; rather it can only make predictions. Thu
 ```
 python src/dkvmn_irt/train.py --artificial-missing-perc 0.2 --num-person 10000 --num-item 100 --gpu-device 0 --cuda
 ```
-
-### Fitting EM in R
-TODO.

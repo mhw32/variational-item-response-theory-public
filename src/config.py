@@ -18,8 +18,8 @@ IS_REAL_WORLD = {
     '2pl_simulation': False, 
     '1pl_nonlinear': False,
     '2pl_nonlinear': False,
-    'children_language': True,
-    'duolingo_language': True,
-    'wordbank_language': True,
+    'critlangacq': True,
+    'duolingo': True,
+    'wordbank': True,
     'pisa2015_science': True,
 }

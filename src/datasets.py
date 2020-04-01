@@ -31,11 +31,11 @@ def load_dataset(dataset_name, train=True, **kwargs):
         return IRTSimulation(train=train, irt_model='2pl', nonlinear=True, **kwargs)
     elif dataset_name == '3pl_nonlinear':
         return IRTSimulation(train=train, irt_model='3pl', nonlinear=True, **kwargs)
-    elif dataset_name == 'children_language':
+    elif dataset_name == 'critlangacq':
         return Children_LanguageAcquisition(train=train, **kwargs)
-    elif dataset_name == 'duolingo_language':
+    elif dataset_name == 'duolingo':
         return DuoLingo_LanguageAcquisition(train=train, binarize=True, **kwargs)
-    elif dataset_name == 'wordbank_language':
+    elif dataset_name == 'wordbank':
         return WordBank_Language(train=train, **kwargs)
     elif dataset_name == 'pisa2015_science':
         return PISAScience2015(train=train, **kwargs)
@@ -1018,9 +1018,9 @@ def long_to_wide_form(response_longform):
 
 
 if __name__ == "__main__":
-    # dataset_name = 'children_language'
-    dataset_name = 'duolingo_language'
-    # dataset_name = 'wordbank_language'
+    # dataset_name = 'critlangacq'
+    dataset_name = 'duolingo'
+    # dataset_name = 'wordbank'
     # dataset_name = 'pisa2015_science'
     dset = load_dataset(dataset_name, train=True)
     print(dset.num_person, dset.num_item)
