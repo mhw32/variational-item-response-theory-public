@@ -18,6 +18,7 @@ We use Python 3 and a Conda environment. Please follow the instructions below.
 conda create -n vibo python=3 anaconda
 conda activate vibo
 conda install pytorch torchvision -c pytorch
+pip install pyro-ppl
 pip install tqdm nltk dotmap sklearn
 ```
 
@@ -29,7 +30,11 @@ I have included the real world data (with exception of Gradescope) in the public
 
 ## How to Use
 
-We will walk through a few commands for data processing and training models.
+We will walk through a few commands for data processing and training models. First, this repository is setup as a package. Thus, for every fresh terminal, we need to run 
+```
+source init_env.sh
+```
+in order to add the correct paths.
 
 ### Create Simulation Data
 
@@ -73,12 +78,12 @@ python src/pyro_core/vibo.py --irt-model 2pl --dataset 2pl_simulation --gpu-devi
 ### Fitting MCMC in Pyro
 Pyro additionally makes it very easy to do inference with MCMC or HMC. We thus leverage it to compare VIBO to traditional methods of approximate Bayesian inference:
 ```
-python src/pyro_core/hmc.py --irt-model 2pl --dataset 2pl_simulation --gpu-device 0 --cuda --num-person 10000 --num-item 100
+python src/pyro_core/hmc.py --irt-model 2pl --dataset 2pl_simulation --cuda --num-person 10000 --num-item 100
 ```
 We emphasize that `--num-samples` and `--num-warmup` are important to getting good posterior samples. If you have several GPUs/CPUs, consider increasing `--num-chains` to greater than one.
 
 ### Fitting Deep IRT
-Deep IRT is not a true inference model; rather it can only make predictions. Thus `--artificial-missing-perc` should be greater than `. Use the command:
+Deep IRT is not a true inference model; rather it can only make predictions. Thus `--artificial-missing-perc` should be greater than 0. Use the command:
 ```
 python src/dkvmn_irt/train.py --artificial-missing-perc 0.2 --num-person 10000 --num-item 100 --gpu-device 0 --cuda
 ```

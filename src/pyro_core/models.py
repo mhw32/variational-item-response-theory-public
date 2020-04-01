@@ -15,7 +15,6 @@ from pyro.distributions import TransformedDistribution
 from pyro.distributions.transforms import affine_autoregressive
 
 from src.utils import product_of_experts, multivariate_product_of_experts
-from src.transformers import TransformerEncoder
 from src.torch_core.models import (
     AbilityInferenceNetwork,
     ConditionalAbilityInferenceNetwork,
@@ -307,7 +306,7 @@ class VIBO_1PL(nn.Module):
         self.irt_num = 1
    
     def model(self, response, mask, annealing_factor=1):
-        if self.generative_models == 'irt':
+        if self.generative_model == 'irt':
             irt_model_fn = globals()[f'irt_model_{self.irt_num}pl']
             return irt_model_fn(
                 self.ability_dim, 

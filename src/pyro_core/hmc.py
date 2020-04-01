@@ -73,7 +73,7 @@ if __name__ == "__main__":
     parser.add_argument('--artificial-missing-perc', type=float, default=0.,
                         help='how much to blank out so we can measure acc (default: 0)')
 
-    parser.add_argument('--num-chains', type=int, default=4)
+    parser.add_argument('--num-chains', type=int, default=1)
     parser.add_argument('--num-warmup', type=int, default=100)
     parser.add_argument('--num-samples', type=int, default=200)
 
@@ -81,8 +81,6 @@ if __name__ == "__main__":
                         help='where to dump checkpoints (default: OUT_DIR)')
     parser.add_argument('--seed', type=int, default=42, metavar='S',
                         help='random seed (default: 42)')
-    parser.add_argument('--gpu-device', type=int, default=0, 
-                        help='which CUDA device to use (default: 0)')
     parser.add_argument('--cuda', action='store_true', default=False,
                         help='enables CUDA training')
     args = parser.parse_args()
@@ -135,8 +133,6 @@ if __name__ == "__main__":
         os.makedirs(args.out_dir)
 
     device = torch.device("cuda" if args.cuda else "cpu")
-
-    if args.cuda: torch.cuda.set_device(args.gpu_device)
 
     train_dataset = load_dataset(
         args.dataset, 

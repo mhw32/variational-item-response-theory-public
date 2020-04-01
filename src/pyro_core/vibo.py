@@ -14,7 +14,7 @@ from pyro.infer import SVI, JitTrace_ELBO, Trace_ELBO
 from pyro.infer import Importance, EmpiricalMarginal
 from pyro.optim import Adam
 
-from src.models import (
+from src.pyro_core.models import (
     VIBO_3PL, 
     VIBO_2PL, 
     VIBO_1PL,

@@ -19,7 +19,7 @@ from src.config import OUT_DIR, IS_REAL_WORLD
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, default='1pl_simulation',
+    parser.add_argument('--dataset', type=str, default='2pl_simulation',
                         choices=[
                             '1pl_simulation', 
                             '2pl_simulation', 
@@ -29,7 +29,7 @@ if __name__ == "__main__":
                             'wordbank',
                             'pisa2015_science',
                         ],
-                        help='which dataset to run on (default: 1pl_simulation)')
+                        help='which dataset to run on (default: 2pl_simulation)')
     parser.add_argument('--ability-dim', type=int, default=1,
                         help='number of ability dimensions (default: 1)')
     parser.add_argument('--artificial-missing-perc', type=float, default=0.,

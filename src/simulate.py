@@ -8,7 +8,11 @@ import torch
 import numpy as np
 
 from src.config import DATA_DIR
-from src.models import irt_model_1pl, irt_model_2pl, irt_model_3pl
+from src.pyro_core.models import (
+    irt_model_1pl, 
+    irt_model_2pl, 
+    irt_model_3pl,
+)
 
 
 if __name__ == "__main__":
