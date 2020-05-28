@@ -87,3 +87,6 @@ Deep IRT is not a true inference model; rather it can only make predictions. Thu
 ```
 python src/dkvmn_irt/train.py --artificial-missing-perc 0.2 --num-person 10000 --num-item 100 --gpu-device 0 --cuda
 ```
+
+### Tuning Parameters
+In some settings, especially with small datasets, VIBO adds a KL regularization term that may impose too strong of a regularization. In practive, we find that adding a weight (less than 1) on the KL regularization terms helps to circumvent to this problem.
